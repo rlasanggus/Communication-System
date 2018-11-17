@@ -71,9 +71,29 @@ end
 -n의 angle과 n의 angle을 stem함수를 이용 그래프를 작성  
 ### <pre>hw2_3</pre>
 1.그림 CP-2.3에 나타난 두 개의 신호의 크기와 위상 스펙트럼을 그려라 x2(t)는 x1(t)가 시간천이된 것임에 유의한다. 따라서 두 신호가 동일한 크기 스펙트럼을 가지게 됨을 예측할 수 있다.  
-
+### <code>fftseq(m,ts,df)</code>  
+```matlab
+fs=1/ts;
+if nargin == 2
+n1=0;
+else
+n1=fs/df;
+end
+n2=length(m);
+n=2^(max(nextpow2(n1),nextpow2(n2)));
+M=fft(m,n);
+m=[m,zeros(1,n-n2)];
+df=fs/n;
+```  
+푸리에 변환된 결과를 반환해주는 함수  
 ### <pre>hw2_5</pre>  
 ![image](https://user-images.githubusercontent.com/43701183/48659866-4566de00-ea9b-11e8-8ddc-0ce6f4506521.png)  
 1. x(t)와 크기스펙트럼 |X(f)|를 그려라  
 2. f0 = 200Hz에 대해 등가의 저역통과 신호를 구하고, 그 크기 스펙트럼을 그려라. 또한 x(t)의 동위상 성분과 직교위상 성분 및 x(t)의 포락선을 그려라.  
-
+```matlab
+function xl=loweq(x,ts,f0)
+t=[0:ts:ts*(length(x)-1)];
+z=hilbert(x);
+xl=z.*exp(-i*2*pi*f0*t);
+```  
+저역통과된 값을 반환해줌.  
