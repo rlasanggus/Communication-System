@@ -13,19 +13,19 @@ for n=1:9
     plot(t,series(xn_f,t,1/4,n));
 end
 ```
-[series]() 함수를 이용. n에 따른 wave를 그림  
+[series](https://github.com/rlasanggus/Communication-System/tree/master/matlab%20project1#seriesxn_f-t-f0-n) 함수를 이용. n에 따른 wave를 그림  
 ```matlab
 figure(2);
 spectrum_mag(xn_f,20);
 hold on;
 ```  
-[spectrm_mag]()함수를 이용 magnitude spectrum을 그림  
+[spectrm_mag](https://github.com/rlasanggus/Communication-System/tree/master/matlab%20project1#spectrum_magxn_f-n)함수를 이용 magnitude spectrum을 그림  
 ```matlab
 figure(3);
 spectrum_phase(xn_f,20);
 hold on;
 ```  
-[spectrum_phase]()함수를 이용 phase spectrum을 그림  
+[spectrum_phase](https://github.com/rlasanggus/Communication-System/tree/master/matlab%20project1#spectrum_phasexn_f-n)함수를 이용 phase spectrum을 그림  
 #### <code>series(xn_f, t, f0, n)</code>  
 ```matlab
 function wave = series(xn_f, t, f0, n)
